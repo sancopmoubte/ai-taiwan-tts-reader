@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Extract application source
         run: tar -xzf ai-taiwan-tts-reader.tar.gz --strip-components=1
-      - name: Setup pnpm
+      - name: Fix browser TTS import\n        run: sed -i 's/import { EdgeTTS } from "edge-tts-browser";/import EdgeTTS from "edge-tts-browser";/' client/src/lib/tts.ts\n      - name: Setup pnpm
         uses: pnpm/action-setup@v4
       - name: Setup Node
         uses: actions/setup-node@v4
